@@ -1,0 +1,128 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MIT-Lending
+</name>
+</assembly>
+<members>
+<member name="P:MIT_Lending.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Delete_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Edit_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.money">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Search_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Settings_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.User_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:MIT_Lending.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblpaymentDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblclientDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblactive_loansDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblpaymentRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblclientRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblactive_loansRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblpaymentRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblclientRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblactive_loansRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:MIT_Lending.DataSet1">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1TableAdapters.tblpaymentTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1TableAdapters.tblclientTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(MIT_Lending.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(MIT_Lending.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(MIT_Lending.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.UpdateAll(MIT_Lending.DataSet1)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:MIT_Lending.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:MIT_Lending.DataSet1TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,110 @@
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.exe.config
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.exe
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.pdb
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.xml
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.fakesconfig
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.fakesconfig
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\DocumentFormat.OpenXml.dll
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.dll
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.dll
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\MySql.Data.dll
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\DocumentFormat.OpenXml.xml
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.xml
+C:\projects\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.xml
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.vbproj.ResolveComReference.cache
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmAdminPass.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmBGW.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmChangePassword.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmEditPayments.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmLock.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmLogin.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmMain.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmPassword.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmSettings.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmTestData.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmTestPrint.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.Resources.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmAreas.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.clients_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_profile_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_client_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_client_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_emp_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.emp_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_emp_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_loan_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.loans_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_loan_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cutoff_payment_entry_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cutoff_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_payment_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_payment_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.payments_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.pay_sched_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cleint_weekly_due_report_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_balance_report_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_report_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.collector_report_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.payment_report_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.reports_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.restriction_uc.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.vbproj.GenerateResource.Cache
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\RdlCompile.cache
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\RdlCompile.compiled
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.exe
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.xml
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.pdb
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.exe.config
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.vbproj.ResolveComReference.cache
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.exe
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.xml
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.pdb
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.exe
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.pdb
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\MIT-Lending.xml
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\DocumentFormat.OpenXml.dll
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.dll
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.dll
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\DocumentFormat.OpenXml.xml
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.xml
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\bin\Debug\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.xml
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmAdminPass.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmBGW.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmChangePassword.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmEditPayments.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmLock.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmLogin.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmMain.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmPassword.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmSettings.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmTestData.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmTestPrint.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.Resources.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.frmAreas.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.clients_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_profile_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_client_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_client_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_emp_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.emp_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_emp_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_loan_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.loans_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_loan_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cutoff_payment_entry_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cutoff_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.edit_payment_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.new_payment_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.payments_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.pay_sched_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.cleint_weekly_due_report_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_balance_report_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.client_report_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.collector_report_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.payment_report_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.reports_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.restriction_uc.resources
+G:\Maharlika-IT Files\MIT-Lending\MIT-Lending\obj\Debug\MIT-Lending.vbproj.GenerateResource.Cache
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.emp_ca.resources
+C:\projects\MIT-Lending\MIT-Lending\obj\Debug\MIT_Lending.emp_ca_monitor.resources

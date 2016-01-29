@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC9458D6-FDD0-44A8-AE28-F7B9742A2D7D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MIT_Lending.My.MyApplication</StartupObject>
+    <RootNamespace>MIT_Lending</RootNamespace>
+    <AssemblyName>MIT-Lending</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://maharlika-it.com/MIT-Lending</SupportUrl>
+    <ProductName>MIT-Lending</ProductName>
+    <PublisherName>Maharlikt-IT</PublisherName>
+    <SuiteName>MIT-Lending Version 1.0</SuiteName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MIT-Lending.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MIT-Lending.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common.11.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\Microsoft.ReportViewer.Common.11.0.0.0.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\Microsoft.ReportViewer.WinForms.11.0.0.0.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\area.vb" />
+    <Compile Include="classes\cash_advance.vb" />
+    <Compile Include="classes\cash_advance_payment.vb" />
+    <Compile Include="classes\client.vb" />
+    <Compile Include="classes\emp.vb" />
+    <Compile Include="classes\loan.vb" />
+    <Compile Include="classes\logger.vb" />
+    <Compile Include="classes\payment.vb" />
+    <Compile Include="classes\payment_schedule.vb" />
+    <Compile Include="classes\restriction.vb" />
+    <Compile Include="classes\user.vb" />
+    <Compile Include="data\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="data\DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAdminPass.Designer.vb">
+      <DependentUpon>frmAdminPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAdminPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmBGW.Designer.vb">
+      <DependentUpon>frmBGW.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmBGW.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmChangePassword.Designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmEditPayments.Designer.vb">
+      <DependentUpon>frmEditPayments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmEditPayments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLock.Designer.vb">
+      <DependentUpon>frmLock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmLock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPassword.Designer.vb">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmTestData.Designer.vb">
+      <DependentUpon>frmTestData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmTestData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmTestPrint.Designer.vb">
+      <DependentUpon>frmTestPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmTestPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modules\connection.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="usercontrols\area\frmAreas.Designer.vb">
+      <DependentUpon>frmAreas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\area\frmAreas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usercontrols\clients\clients_uc.Designer.vb">
+      <DependentUpon>clients_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\clients\clients_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\clients\client_profile_uc.Designer.vb">
+      <DependentUpon>client_profile_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\clients\client_profile_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\clients\edit_client_uc.Designer.vb">
+      <DependentUpon>edit_client_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\clients\edit_client_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\clients\new_client_uc.Designer.vb">
+      <DependentUpon>new_client_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\clients\new_client_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\emp\edit_emp_uc.Designer.vb">
+      <DependentUpon>edit_emp_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\emp\edit_emp_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_ca.Designer.vb">
+      <DependentUpon>emp_ca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_ca.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_ca_monitor.Designer.vb">
+      <DependentUpon>emp_ca_monitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_ca_monitor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_uc.Designer.vb">
+      <DependentUpon>emp_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\emp\emp_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\emp\new_emp_uc.Designer.vb">
+      <DependentUpon>new_emp_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\emp\new_emp_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\loans\edit_loan_uc.Designer.vb">
+      <DependentUpon>edit_loan_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\loans\edit_loan_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\loans\loans_uc.Designer.vb">
+      <DependentUpon>loans_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\loans\loans_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\loans\new_loan_uc.Designer.vb">
+      <DependentUpon>new_loan_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\loans\new_loan_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\cutoff_payment_entry_uc.Designer.vb">
+      <DependentUpon>cutoff_payment_entry_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\cutoff_payment_entry_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\cutoff_uc.Designer.vb">
+      <DependentUpon>cutoff_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\cutoff_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\edit_payment_uc.Designer.vb">
+      <DependentUpon>edit_payment_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\edit_payment_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\new_payment_uc.Designer.vb">
+      <DependentUpon>new_payment_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\new_payment_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\payments_uc.Designer.vb">
+      <DependentUpon>payments_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\payments_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\payments\pay_sched_uc.Designer.vb">
+      <DependentUpon>pay_sched_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\payments\pay_sched_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\cleint_weekly_due_report_uc.Designer.vb">
+      <DependentUpon>cleint_weekly_due_report_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\cleint_weekly_due_report_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\client_balance_report_uc.Designer.vb">
+      <DependentUpon>client_balance_report_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\client_balance_report_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\client_report_uc.Designer.vb">
+      <DependentUpon>client_report_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\client_report_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\collector_report_uc.Designer.vb">
+      <DependentUpon>collector_report_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\collector_report_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\payment_report_uc.Designer.vb">
+      <DependentUpon>payment_report_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\payment_report_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\reports\reports_uc.Designer.vb">
+      <DependentUpon>reports_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\reports\reports_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\restriction\restriction_uc.Designer.vb">
+      <DependentUpon>restriction_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\restriction\restriction_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="forms\frmAdminPass.resx">
+      <DependentUpon>frmAdminPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmBGW.resx">
+      <DependentUpon>frmBGW.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmEditPayments.resx">
+      <DependentUpon>frmEditPayments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLock.resx">
+      <DependentUpon>frmLock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPassword.resx">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmSettings.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmTestData.resx">
+      <DependentUpon>frmTestData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmTestPrint.resx">
+      <DependentUpon>frmTestPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\area\frmAreas.resx">
+      <DependentUpon>frmAreas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\clients\clients_uc.resx">
+      <DependentUpon>clients_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\clients\client_profile_uc.resx">
+      <DependentUpon>client_profile_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\clients\edit_client_uc.resx">
+      <DependentUpon>edit_client_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\clients\new_client_uc.resx">
+      <DependentUpon>new_client_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\emp\edit_emp_uc.resx">
+      <DependentUpon>edit_emp_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\emp\emp_ca.resx">
+      <DependentUpon>emp_ca.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\emp\emp_ca_monitor.resx">
+      <DependentUpon>emp_ca_monitor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\emp\emp_uc.resx">
+      <DependentUpon>emp_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\emp\new_emp_uc.resx">
+      <DependentUpon>new_emp_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\loans\edit_loan_uc.resx">
+      <DependentUpon>edit_loan_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\loans\loans_uc.resx">
+      <DependentUpon>loans_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\loans\new_loan_uc.resx">
+      <DependentUpon>new_loan_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\cutoff_payment_entry_uc.resx">
+      <DependentUpon>cutoff_payment_entry_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\cutoff_uc.resx">
+      <DependentUpon>cutoff_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\edit_payment_uc.resx">
+      <DependentUpon>edit_payment_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\new_payment_uc.resx">
+      <DependentUpon>new_payment_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\payments_uc.resx">
+      <DependentUpon>payments_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\payments\pay_sched_uc.resx">
+      <DependentUpon>pay_sched_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\reports\cleint_weekly_due_report_uc.resx">
+      <DependentUpon>cleint_weekly_due_report_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\reports\client_balance_report_uc.resx">
+      <DependentUpon>client_balance_report_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\reports\client_report_uc.resx">
+      <DependentUpon>client_report_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\reports\collector_report_uc.resx">
+      <DependentUpon>collector_report_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\reports\payment_report_uc.resx">
+      <DependentUpon>payment_report_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\reports\Report1.rdlc" />
+    <EmbeddedResource Include="bin\Debug\reports\Report2.rdlc" />
+    <EmbeddedResource Include="bin\Debug\reports\client.rdlc" />
+    <EmbeddedResource Include="bin\Debug\reports\Report4.rdlc" />
+    <EmbeddedResource Include="usercontrols\reports\reports_uc.resx">
+      <DependentUpon>reports_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\restriction\restriction_uc.resx">
+      <DependentUpon>restriction_uc.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="data\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="data\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <Fakes Include="Fakes\Microsoft.ReportViewer.Common.fakes" />
+    <Fakes Include="Fakes\Microsoft.ReportViewer.WinForms.fakes" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Currency-Dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
