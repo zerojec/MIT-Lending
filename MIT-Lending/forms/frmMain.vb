@@ -21,6 +21,13 @@
         InitiateKeyCodes()
         InitiateCutOffs()
         IntitializeMainForm()
+
+        Dim a As New loans_uc
+        a.Dock = DockStyle.Fill
+        pnlops.Controls.Clear()
+        pnlops.Controls.Add(a)
+
+        Me.current_user_notif.Text = "CURRENT_USER : " & CURRENT_USER.fname & " " & CURRENT_USER.lname & "(" & CURRENT_USER.position & ")"
     End Sub
 
     Sub IntitializeMainForm()
@@ -174,7 +181,7 @@
 
         Me.pnlops.Controls.Clear()
 
-        CURRENT_USER = Nothing
+        current_user_notif = Nothing
         CURRENT_RESTRICTION = Nothing
 
         Me.Enabled = False
@@ -185,4 +192,15 @@
         Me.Hide()
     End Sub
 
+    Private Sub notify_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles notify.MouseDoubleClick
+
+    End Sub
+
+    Private Sub notify_MouseMove(sender As Object, e As MouseEventArgs) Handles notify.MouseMove
+
+    End Sub
+
+    Private Sub notify_Click(sender As Object, e As EventArgs) Handles notify.Click
+        notify.ShowBalloonTip(2000)
+    End Sub
 End Class

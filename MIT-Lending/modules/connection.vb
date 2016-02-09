@@ -19,6 +19,7 @@ Module connection
     Public kd As New List(Of Integer)
 
     Public cuttoff_date As New List(Of String)
+
     '====================================================================
     'OPENING DATABASE CONNECTION
     '====================================================================
@@ -91,7 +92,6 @@ Module connection
             ExecuteCommand = False
         End Try
     End Function
-
 
 
     '====================================================================

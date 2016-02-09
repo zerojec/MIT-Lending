@@ -75,13 +75,27 @@ Public Class payment
         SetCommandProperties(cmd, sql)
         cmd.Parameters.AddWithValue("_id", id)
         If ExecuteCommand(cmd) Then
-            Dim l As New logger()
+
+            'LOG DELETE
+            Dim l, l2 As New logger()
             l.action = sql
             l.datetime = DateTime.Now
             l.program_part = "PAYMENT"
             l.data = "PAYMENT ID : " & id & "- AMOUNT :" & amount & "-CLIENTID :" & clientid & "-LOANID :" & loanid
 
             l.WriteLog()
+
+            Dim loan As New loan
+            loan.id = loanid
+            loan.UNSET_TO_FULLY_PAID(Now)
+
+            l2.action = "PAYMENT_DELETED --> LOAN_UNSET_TO_FULLY_PAID"
+            l2.data = "DELETED BY :" & CURRENT_USER.id & "-" & CURRENT_USER.fname & " " & CURRENT_USER.lname
+            l2.datetime = DateTime.Now
+            l2.program_part = "PAYMENT"
+            l2.WriteLog()
+
+
             delete = True
         Else
             delete = False

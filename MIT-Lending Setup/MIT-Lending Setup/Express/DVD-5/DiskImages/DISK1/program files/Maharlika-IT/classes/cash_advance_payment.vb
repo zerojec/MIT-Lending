@@ -108,6 +108,40 @@ Public Class cash_advance_payment
         SELECT_BY_CA_ID = dt
     End Function
 
+    Public Function SELECT_BY_EMPID() As DataTable
+        Dim sql As String = "CA_PAYMENT_SELECT_BYEMPID"
+        Dim cmd As New MySqlCommand
+        cmd.Parameters.AddWithValue("_empid", empid)
+        SetCommandProperties(cmd, sql)
+
+        Dim da As New MySqlDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+        SELECT_BY_EMPID = dt
+    End Function
+
+    Public Function GET_TOTAL_PAYMENT() As Decimal
+
+        Dim sql As String = "CA_PAYMENT_TOTAL_BYEMPID"
+        Dim cmd As New MySqlCommand
+        cmd.Parameters.AddWithValue("_empid", empid)
+        SetCommandProperties(cmd, sql)
+
+        Dim da As New MySqlDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+
+        If dt IsNot Nothing Then
+            Return CDec(dt.Rows(0).Item(0).ToString())
+        Else
+            Return 0
+        End If
+
+    End Function
     Public Function SELECT_BYID() As cash_advance_payment
 
         Dim sql As String = "CA_PAYMENT_SELECT_BYID"

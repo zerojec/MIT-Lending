@@ -145,6 +145,12 @@
     <Compile Include="forms\frmBGW.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmCashAdvanceReport.Designer.vb">
+      <DependentUpon>frmCashAdvanceReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmCashAdvanceReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmChangePassword.Designer.vb">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </Compile>
@@ -174,6 +180,12 @@
     </Compile>
     <Compile Include="forms\frmMain.Designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmNewCashAdvance.Designer.vb">
+      <DependentUpon>frmNewCashAdvance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmNewCashAdvance.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmPassword.Designer.vb">
@@ -295,6 +307,12 @@
     <Compile Include="usercontrols\loans\new_loan_uc.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="usercontrols\notifications\notic_uc.Designer.vb">
+      <DependentUpon>notic_uc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\notifications\notic_uc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="usercontrols\payments\cutoff_payment_entry_uc.Designer.vb">
       <DependentUpon>cutoff_payment_entry_uc.vb</DependentUpon>
     </Compile>
@@ -375,11 +393,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="bin\Debug\reports\rptCashAdvanceReport.rdlc" />
     <EmbeddedResource Include="forms\frmAdminPass.resx">
       <DependentUpon>frmAdminPass.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmBGW.resx">
       <DependentUpon>frmBGW.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCashAdvanceReport.resx">
+      <DependentUpon>frmCashAdvanceReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
@@ -395,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmNewCashAdvance.resx">
+      <DependentUpon>frmNewCashAdvance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPassword.resx">
       <DependentUpon>frmPassword.vb</DependentUpon>
@@ -452,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usercontrols\loans\new_loan_uc.resx">
       <DependentUpon>new_loan_uc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\notifications\notic_uc.resx">
+      <DependentUpon>notic_uc.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usercontrols\payments\cutoff_payment_entry_uc.resx">
       <DependentUpon>cutoff_payment_entry_uc.vb</DependentUpon>
@@ -587,7 +615,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Print_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_24x24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

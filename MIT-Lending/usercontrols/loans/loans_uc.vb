@@ -47,7 +47,9 @@ Public Class loans_uc
                     li.SubItems.Add(Format(total_payment, "#,##0.00") & "@" & Format(percentage, "0.00%"))
                     li.SubItems.Add(Format(balance, "#,##0.00"))
 
-                    li.Tag = r.Item("loanid")
+                    li.Tag = r.Item("loanid") & "-" & r.Item("id")
+
+
                     lv.Items.Add(li)
 
                     c += 1
@@ -99,7 +101,7 @@ Public Class loans_uc
                         li.SubItems.Add(Format(total_payment, "#,##0.00") & "@" & Format(percentage, "0.00%"))
                         li.SubItems.Add(Format(balance, "#,##0.00"))
 
-                        li.Tag = r.Item("loanid")
+                        li.Tag = r.Item("loanid") & "-" & r.Item("id")
 
                         lv.Items.Add(li)
 
@@ -114,6 +116,82 @@ Public Class loans_uc
         End If
 
     End Sub
+
+
+
+
+    Sub LoadActiveLoansSoonToClose()
+
+        chkActive.Checked = True
+        txtSearchBox.Text = ""
+
+        Dim dt As New DataTable
+        Dim l As New loan
+        dt = l.SELECT_ACTIVE
+
+        lv.Items.Clear()
+        If dt IsNot Nothing Then
+            If dt.Rows.Count > 0 Then
+
+                Dim c As Integer = 1
+                For Each r As DataRow In dt.Rows
+
+                    Dim loan_amount As Decimal = r.Item("loan_amount")
+                    Dim total_payment As Decimal = r.Item("payment_sum")
+                    Dim balance As Decimal = r.Item("balance")
+                    Dim percentage As Decimal
+
+                    Dim li As New ListViewItem
+
+                    li.Text = c
+
+
+
+
+                    If balance = 0 Then
+                        Dim active_loan As New loan
+                        active_loan.id = r.Item("loanid")
+                        active_loan.SET_TO_FULLY_PAID(Now)
+                    Else
+                        'li.SubItems.Add(r.Item("id"))
+                        li.SubItems.Add(r.Item("fullname"))
+                        li.SubItems.Add(r.Item("date_released"))
+                        li.SubItems.Add(r.Item("start_of_payment"))
+
+                        Dim d As Date = CDate(r.Item("end_of_payment"))
+
+                        Dim ts As TimeSpan = d.Subtract(Date.Now)
+
+                        If ts.TotalDays <= 7 Then
+                            li.BackColor = Color.Red
+                            li.ForeColor = Color.White
+                        End If
+
+                        li.SubItems.Add(r.Item("end_of_payment"))
+                        li.SubItems.Add(Format(loan_amount, "#,##0.00"))
+                        li.SubItems.Add(r.Item("comaker"))
+
+                        percentage = total_payment / loan_amount
+
+                        li.SubItems.Add(Format(total_payment, "#,##0.00") & "@" & Format(percentage, "0.00%"))
+                        li.SubItems.Add(Format(balance, "#,##0.00"))
+
+                        li.Tag = r.Item("loanid") & "-" & r.Item("id")
+
+                        lv.Items.Add(li)
+
+                        c += 1
+                    End If
+
+
+
+                Next
+
+            End If
+        End If
+
+    End Sub
+
 
     Sub LoadLoansByName(ByVal thisname As String)
         Dim dt As New DataTable
@@ -147,7 +225,9 @@ Public Class loans_uc
                     li.SubItems.Add(Format(total_payment, "#,##0.00") & "@" & Format(percentage, "0.00%"))
                     li.SubItems.Add(Format(balance, "#,##0.00"))
 
-                    li.Tag = r.Item("loanid")
+                    li.Tag = r.Item("loanid") & "-" & r.Item("id")
+
+
                     lv.Items.Add(li)
 
                     c += 1
@@ -190,7 +270,8 @@ Public Class loans_uc
                     li.SubItems.Add(Format(total_payment, "#,##0.00") & "@" & Format(percentage, "0.00%"))
                     li.SubItems.Add(Format(balance, "#,##0.00"))
 
-                    li.Tag = r.Item("loanid")
+                    li.Tag = r.Item("loanid") & "-" & r.Item("id")
+
                     lv.Items.Add(li)
 
                     c += 1
@@ -278,8 +359,9 @@ Public Class loans_uc
     Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         If lv.SelectedItems.Count > 0 Then
 
+            Dim id As String = Split(lv.SelectedItems(0).Tag, "-")(1)
             Dim l, l1 As New loan
-            l1.id = lv.SelectedItems(0).Tag
+            l1.id = id
             l = l1.SELECT_BY_ID
 
             If MsgBox("WARNING : Are you sure you want to delete this permanentyly?" & vbCrLf & "All payments associated with this loan will also be deleted and this action is IRREVERSIBLE. Please Confirm.", MsgBoxStyle.YesNo + MsgBoxStyle.Exclamation, "Confirm Delete") = MsgBoxResult.Yes Then
@@ -338,7 +420,12 @@ Public Class loans_uc
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If chkActive.Checked Then
-            LoadActiveLoans()
+            If chkSoonToEnd.Checked Then
+                LoadActiveLoansSoonToClose()
+            Else
+                LoadActiveLoans()
+            End If
+
         Else
             LoadLoans()
         End If
@@ -346,5 +433,35 @@ Public Class loans_uc
         ApplyRestrictions()
         Timer1.Enabled = False
 
+    End Sub
+
+    Private Sub ViewProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewProfileToolStripMenuItem.Click
+
+        If lv.SelectedItems.Count > 0 Then
+
+            Dim clientid As Integer = Split(lv.SelectedItems(0).Tag, "-")(1)
+            Dim a, b As New client
+            b.id = clientid
+            a = b.SELECT_BY_ID()
+
+            Dim cp As New client_profile_uc
+            cp.Dock = DockStyle.Fill
+            cp.c = a
+
+            pnlops.Controls.Clear()
+            pnlops.Height = cp.Height
+
+            pnlops.Controls.Add(cp)
+
+
+        End If
+    End Sub
+
+    Private Sub chkSoonToEnd_CheckedChanged(sender As Object, e As EventArgs) Handles chkSoonToEnd.CheckedChanged
+        If chkSoonToEnd.Checked Then
+            LoadActiveLoansSoonToClose()
+        Else
+            LoadActiveLoans()
+        End If
     End Sub
 End Class

@@ -9,7 +9,7 @@ Public Class loan
     Public Property end_of_payment As Date
     Public Property loan_amount As Decimal
     Public Property daily_payment_amount As Decimal
-
+    Public Property date_fully_paid As Date
     Public Function save() As Boolean
         save = False
         Dim sql As String = "LOAN_INSERT"
@@ -96,13 +96,13 @@ Public Class loan
         cmd.Parameters.AddWithValue("_this_date", _this_date)
 
         If ExecuteCommand(cmd) Then
-            Dim l As New logger()
-            l.action = sql
-            l.datetime = DateTime.Now
-            l.program_part = "LOAN"
-            l.data = id & " " & _this_date
+            'Dim l As New logger()
+            'l.action = sql
+            'l.datetime = DateTime.Now
+            'l.program_part = "LOAN"
+            'l.data = id & " " & _this_date
 
-            l.WriteLog()
+            'l.WriteLog()
             SET_TO_FULLY_PAID = True
         Else
             SET_TO_FULLY_PAID = False
@@ -120,13 +120,13 @@ Public Class loan
         cmd.Parameters.AddWithValue("_this_date", _this_date)
 
         If ExecuteCommand(cmd) Then
-            Dim l As New logger()
-            l.action = sql
-            l.datetime = DateTime.Now
-            l.program_part = "LOAN"
-            l.data = "LOAN ID :" & id & "-DATE_UNSET :" & _this_date & "-BY:" & CURRENT_USER.id & "-" & CURRENT_USER.lname & "," & CURRENT_USER.fname
+            'Dim l As New logger()
+            'l.action = sql
+            'l.datetime = DateTime.Now
+            'l.program_part = "LOAN"
+            'l.data = "LOAN ID :" & id & "-DATE_UNSET :" & _this_date & "-BY:" & CURRENT_USER.id & "-" & CURRENT_USER.lname & "," & CURRENT_USER.fname
 
-            l.WriteLog()
+            'l.WriteLog()
             UNSET_TO_FULLY_PAID = True
         Else
             UNSET_TO_FULLY_PAID = False
@@ -237,6 +237,13 @@ Public Class loan
                 e.end_of_payment = dt.Rows(0).Item("end_of_payment")
                 e.loan_amount = dt.Rows(0).Item("loan_amount")
                 e.daily_payment_amount = dt.Rows(0).Item("daily_payment_amount")
+
+
+                If Not IsDBNull(dt.Rows(0).Item("date_fully_paid")) Then
+                    e.date_fully_paid = dt.Rows(0).Item("date_fully_paid")
+                Else
+                    e.date_fully_paid = Nothing
+                End If
 
                 SELECT_BY_ID = e
             Else

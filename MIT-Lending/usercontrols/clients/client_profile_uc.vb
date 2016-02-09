@@ -115,19 +115,16 @@ Public Class client_profile_uc
 
     Sub DetermineCutOffs(ByVal l As loan)
 
-
-
-
         Dim WEEKLY_DUE As Decimal = 0 'aka WEEKLY_DUE
         Dim WEEKNO As Integer = 1
         Dim OVERALL_DUE As Decimal = 0
-        Dim LAPSE As Integer = 0
+        Dim LAPSE_CTR As Integer = 0
         Dim TOTAL_LAPSE As Integer = 0
         Dim CTR As Integer = 0
         Dim OVERDUE_CTR As Integer = 0
         Dim ABSENT_DAYS As Integer = 0 'NO PAYMENT ON SCHEDULE
         Dim PAYMENT_CTR As Integer = 0
-        Dim RATING As String
+        Dim RATING As String = ""
         Dim STATS As String = ""
 
 
@@ -138,14 +135,19 @@ Public Class client_profile_uc
         Dim end_of_payment As Date = start_of_payment.AddDays(100)
         Dim daily As Decimal = CDec(l.loan_amount) / 100
 
+
         'VARIABLE FOR TOTAL PAYMENT FOR THE WEEK
         Dim WEEK_TOTAL As Decimal = 0
         'pnl_payment.Controls.Clear()
 
         '=========================================
         'dc variable is short for "DAYS COUNT" just for counting 100 days
-        Dim t As Integer = 0
-        Dim ps(100) As payment_schedule
+        Dim t As Integer = 0        
+
+        Dim lOOP_END_CTR As Integer = 0
+
+
+
 
         For dc As Integer = 0 To 99
 
@@ -158,6 +160,8 @@ Public Class client_profile_uc
             Dim cutoff_end_date As Date
 
             Dim no As Integer = dc + 1
+            'dc is the counter for looping to 100 days
+            'thsdate is the DAY generated (dc)DAYS after start_of_payment DATE
             Dim thisdate As Date = DateAdd(DateInterval.Day, dc, start_of_payment)
             Dim payment_for_this_day As Decimal = 0
             Dim collectibles As Decimal = 0
@@ -171,11 +175,22 @@ Public Class client_profile_uc
             WEEK_TOTAL += payment_for_this_day
 
 
-            'INCREMENT ABSENT_DAYS IF NOT PAYMENT
-            If payment_for_this_day = 0 Then
-                ABSENT_DAYS += 1
-            End If
+            'INCREMENT ABSENT_DAYS
 
+            If payment_for_this_day = 0 Then
+                'IF FULLY PAID
+                If Not l.date_fully_paid.CompareTo(CDate("1/1/0001")) = 0 Then
+                    'IF FULLY_PAID_DATE IS LESS THAN END_OF_PAYMENT DATE
+                    If l.date_fully_paid.CompareTo(l.end_of_payment) <= 0 Then
+                        If thisdate.CompareTo(l.start_of_payment) >= 0 AndAlso thisdate.CompareTo(l.date_fully_paid) <= 0 Then ABSENT_DAYS += 1
+                    Else
+                        ABSENT_DAYS += 1
+                    End If
+                Else               
+                    If thisdate.CompareTo(l.start_of_payment) >= 0 AndAlso thisdate.CompareTo(Date.Now) <= 0 Then ABSENT_DAYS += 1
+                End If
+            End If
+            
 
             'INCREMENT WEEKLY DUE BY ADDING THE 
             'DAILY PAYMENT FOR EACH DAY IN THE CUTOFF PERIOD
@@ -318,10 +333,8 @@ Public Class client_profile_uc
                 End If
 
 
-
-
                 'COUNTER OF OVERDUE
-                If collectibles > 0 Then
+                If collectibles > 0 And thisdate.CompareTo(l.date_fully_paid) = -1 Then
                     OVERDUE_CTR += 1
                 End If
 
@@ -344,8 +357,7 @@ Public Class client_profile_uc
         lbl.Dock = DockStyle.Fill
         lbl.ForeColor = Color.White
 
-        lbl.Text = "TOTAL ABSENT/S :  " & ABSENT_DAYS & vbTab
-        lbl.Text &= vbTab & "---TOTAL OVERDUE : " & OVERDUE_CTR
+       
 
         ''new 
         'If TOTAL_LAPSE < 10 Then
@@ -370,15 +382,31 @@ Public Class client_profile_uc
         End If
 
 
-        If ABSENT_DAYS > 0 Then
-            STATS = "LAPSE"
-        Else
-            STATS = "NO LAPSE"
+        lbl.Text = "ABSENTS:  " & ABSENT_DAYS & vbTab
+        lbl.Text &= vbTab & "  |  OVERDUE: " & OVERDUE_CTR
+
+
+        lbl.Text &= vbTab & "  |  RATING: " & RATING
+
+        If Not l.date_fully_paid.CompareTo(CDate("1/1/0001")) = 0 Then
+            lbl.Text &= vbTab & "  |  DATE FULLY PAID : " & l.date_fully_paid.ToShortDateString()
         End If
 
-        lbl.Text &= vbTab & "---STATUS :  " & STATS
-        lbl.Text &= vbTab & "---RATING :  " & RATING
+        'CHECK LAPSE
+        If Not l.date_fully_paid.CompareTo(CDate("1/1/0001")) = 0 Then
 
+            If l.date_fully_paid.CompareTo(l.end_of_payment) > 0 Then
+                Dim ts As TimeSpan = l.date_fully_paid.Subtract(l.end_of_payment)
+                LAPSE_CTR = ts.TotalDays
+            End If
+        Else
+            If Date.Now.CompareTo(l.end_of_payment) > 0 Then
+                Dim ts As TimeSpan = Date.Now.Subtract(l.end_of_payment)
+                LAPSE_CTR = ts.TotalDays
+            End If
+        End If
+
+        lbl.Text &= vbTab & "  | LAPSE : " & LAPSE_CTR.ToString()
 
 
         pnlstats.Controls.Add(lbl)

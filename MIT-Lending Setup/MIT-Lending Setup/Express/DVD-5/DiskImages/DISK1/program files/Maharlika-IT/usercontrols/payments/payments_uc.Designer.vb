@@ -113,7 +113,7 @@ Partial Class payments_uc
         '
         Me.cboarea.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboarea.FormattingEnabled = True
-        Me.cboarea.Location = New System.Drawing.Point(323, 11)
+        Me.cboarea.Location = New System.Drawing.Point(323, 9)
         Me.cboarea.Name = "cboarea"
         Me.cboarea.Size = New System.Drawing.Size(124, 24)
         Me.cboarea.TabIndex = 3
@@ -122,7 +122,7 @@ Partial Class payments_uc
         '
         Me.cbocutoff.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbocutoff.FormattingEnabled = True
-        Me.cbocutoff.Location = New System.Drawing.Point(223, 9)
+        Me.cbocutoff.Location = New System.Drawing.Point(223, 11)
         Me.cbocutoff.Name = "cbocutoff"
         Me.cbocutoff.Size = New System.Drawing.Size(94, 24)
         Me.cbocutoff.TabIndex = 2
@@ -144,7 +144,7 @@ Partial Class payments_uc
         Me.cbomonths.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbomonths.FormattingEnabled = True
         Me.cbomonths.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cbomonths.Location = New System.Drawing.Point(123, 9)
+        Me.cbomonths.Location = New System.Drawing.Point(123, 11)
         Me.cbomonths.Name = "cbomonths"
         Me.cbomonths.Size = New System.Drawing.Size(94, 24)
         Me.cbomonths.TabIndex = 4

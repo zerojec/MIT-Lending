@@ -29,7 +29,6 @@ Partial Class loans_uc
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlSearch = New System.Windows.Forms.TableLayoutPanel()
         Me.chkActive = New System.Windows.Forms.CheckBox()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearchBox = New System.Windows.Forms.TextBox()
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -43,9 +42,12 @@ Partial Class loans_uc
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ViewProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.chkSoonToEnd = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.pnlSearch.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -81,6 +83,7 @@ Partial Class loans_uc
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.chkSoonToEnd, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btnNew, 4, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.pnlSearch, 2, 0)
@@ -135,18 +138,6 @@ Partial Class loans_uc
         Me.chkActive.TabIndex = 0
         Me.chkActive.Text = "Active Only"
         Me.chkActive.UseVisualStyleBackColor = True
-        '
-        'btnSearch
-        '
-        Me.btnSearch.BackColor = System.Drawing.Color.Black
-        Me.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Image = Global.MIT_Lending.My.Resources.Resources.Search_24x24
-        Me.btnSearch.Location = New System.Drawing.Point(295, 3)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(39, 37)
-        Me.btnSearch.TabIndex = 1
-        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtSearchBox
         '
@@ -242,9 +233,13 @@ Partial Class loans_uc
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ViewProfileToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 70)
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
         '
         'EditToolStripMenuItem
         '
@@ -252,7 +247,7 @@ Partial Class loans_uc
         Me.EditToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditToolStripMenuItem.Image = Global.MIT_Lending.My.Resources.Resources.Edit_16x16
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'DeleteToolStripMenuItem
@@ -260,12 +255,42 @@ Partial Class loans_uc
         Me.DeleteToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeleteToolStripMenuItem.Image = Global.MIT_Lending.My.Resources.Resources.Delete_16x16
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
-        'Timer1
+        'ViewProfileToolStripMenuItem
         '
-        Me.Timer1.Enabled = True
+        Me.ViewProfileToolStripMenuItem.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewProfileToolStripMenuItem.Image = Global.MIT_Lending.My.Resources.Resources.User_24x24
+        Me.ViewProfileToolStripMenuItem.Name = "ViewProfileToolStripMenuItem"
+        Me.ViewProfileToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ViewProfileToolStripMenuItem.Text = "View Profile"
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.Black
+        Me.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSearch.ForeColor = System.Drawing.Color.White
+        Me.btnSearch.Image = Global.MIT_Lending.My.Resources.Resources.Search_24x24
+        Me.btnSearch.Location = New System.Drawing.Point(295, 3)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(39, 37)
+        Me.btnSearch.TabIndex = 1
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
+        'chkSoonToEnd
+        '
+        Me.chkSoonToEnd.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.chkSoonToEnd.AutoSize = True
+        Me.chkSoonToEnd.Checked = True
+        Me.chkSoonToEnd.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkSoonToEnd.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSoonToEnd.Location = New System.Drawing.Point(358, 12)
+        Me.chkSoonToEnd.Name = "chkSoonToEnd"
+        Me.chkSoonToEnd.Size = New System.Drawing.Size(115, 18)
+        Me.chkSoonToEnd.TabIndex = 5
+        Me.chkSoonToEnd.Text = "Soon To Close"
+        Me.chkSoonToEnd.UseVisualStyleBackColor = True
         '
         'loans_uc
         '
@@ -308,5 +333,7 @@ Partial Class loans_uc
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents ViewProfileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents chkSoonToEnd As System.Windows.Forms.CheckBox
 
 End Class

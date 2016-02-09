@@ -15,6 +15,10 @@ MIT-Lending
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Add_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:MIT_Lending.My.Resources.Resources.Delete_16x16">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -24,6 +28,14 @@ MIT-Lending
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:MIT_Lending.My.Resources.Resources.money">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.New_24x24">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:MIT_Lending.My.Resources.Resources.Print_24x24">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -55,6 +67,14 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvanceDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvance_paymentDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:MIT_Lending.DataSet1.tblpaymentRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -67,6 +87,14 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvanceRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvance_paymentRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:MIT_Lending.DataSet1.tblpaymentRowChangeEvent">
 	<summary>
 Row event argument class
@@ -76,6 +104,14 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:MIT_Lending.DataSet1.tblactive_loansRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvanceRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:MIT_Lending.DataSet1.tblcashadvance_paymentRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>

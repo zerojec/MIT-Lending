@@ -200,27 +200,32 @@ Public Class cutoff_payment_entry_uc
                 End If
             Next
 
-            If weekly_due >= bal Then
-                payment_dt.Rows(r).Item("due") = bal
-                payment_dt.Rows(r).Item("Collectibles") = bal
-                ' frmTestData.Add(weekly_due)
-            Else
-                payment_dt.Rows(r).Item("due") = weekly_due
 
-                'OVERDUE IS THE UNPAID AMOUNT FROM PREVIOUS WEEK
-                'EXAMPLE: CLIENT'S DUE LAS WEEK IS: 700
-                'CLIENT'S PAYMENT LAST WEEK IS: 600
-                'THEN OVERDUE IS COMPUTED AS: 700-600=100
-                'OVERDUE IS ONLY COMPUTED IF CLIENT FAILED TO PAY LAST WEEKS' TOTAL DUE
-                If to_date > end_date Then
-                    payment_dt.Rows(r).Item("overdue") = overdue
-                    payment_dt.Rows(r).Item("Collectibles") = overdue
-                Else
-                    payment_dt.Rows(r).Item("overdue") = overdue
-                    payment_dt.Rows(r).Item("Collectibles") = collectibles + overdue
-                End If
-               
+            'DISABLED
+            'BALANCE BECOMES WEEKLY DUE WHENEVER
+            'WEEKLY DUE BECOMES GREATER THAN BALANCE
+            'If weekly_due >= bal Then
+            '    payment_dt.Rows(r).Item("due") = bal
+            '    payment_dt.Rows(r).Item("Collectibles") = bal
+            '    ' frmTestData.Add(weekly_due)
+            'Else
+
+            payment_dt.Rows(r).Item("due") = weekly_due
+
+            'OVERDUE IS THE UNPAID AMOUNT FROM PREVIOUS WEEK
+            'EXAMPLE: CLIENT'S DUE LAS WEEK IS: 700
+            'CLIENT'S PAYMENT LAST WEEK IS: 600
+            'THEN OVERDUE IS COMPUTED AS: 700-600=100
+            'OVERDUE IS ONLY COMPUTED IF CLIENT FAILED TO PAY LAST WEEKS' TOTAL DUE
+            If to_date > end_date Then
+                payment_dt.Rows(r).Item("overdue") = overdue
+                payment_dt.Rows(r).Item("Collectibles") = overdue
+            Else
+                payment_dt.Rows(r).Item("overdue") = overdue
+                payment_dt.Rows(r).Item("Collectibles") = collectibles + overdue
             End If
+
+            'End If
 
             'payment_dt.Rows(r).Item("due") = weekly_due
             'payment_dt.Rows(r).Item("Collectibles") = collectibles
@@ -293,27 +298,25 @@ Public Class cutoff_payment_entry_uc
     End Sub
 
    
-
     Sub SetEditableColumns()
-
         For Each col As DataGridViewColumn In dtg.Columns
             col.ReadOnly = True
-
-            If CURRENT_RESTRICTION.CAN_EDIT_PAYMENT Then
-                Try
-                    Dim d As Date = CDate(col.Name)
-                    col.DefaultCellStyle.BackColor = Color.Gray
+            Try
+                Dim d As Date = CDate(col.Name)
+                col.DefaultCellStyle.BackColor = Color.Gray
+                If CURRENT_RESTRICTION.CAN_EDIT_PAYMENT Then
                     col.ReadOnly = False
-                Catch ex As Exception
-                    col.ReadOnly = True
-                End Try
-            Else
+                Else
+                    If d.Date.CompareTo(DateTime.Now.Date) Then
+                        col.ReadOnly = True
+                    Else
+                        col.ReadOnly = False
+                    End If
+                End If
+            Catch ex As Exception
                 col.ReadOnly = True
-            End If       
-         
+            End Try
         Next
-
-       
         If dtg.Rows.Count > 0 Then
             dtg.Rows(dtg.Rows.Count - 1).ReadOnly = True
         End If
@@ -323,7 +326,6 @@ Public Class cutoff_payment_entry_uc
 
         Dim iCol = dtg.CurrentCell.ColumnIndex
         Dim iRow = dtg.CurrentCell.RowIndex
-
         Try
             Dim d As Date = CDate(dtg.Columns(iCol).HeaderText)
 
@@ -359,6 +361,7 @@ Public Class cutoff_payment_entry_uc
                     End If
                 Else
                     MsgBox("Warning : Payment should begin on Start Date : " & start_date.ToLongDateString)
+
                     If p.delete_bydate_byclientid Then
                         dtg.Rows(iRow).Cells(iCol).Value = 0.0
                         'MsgBox("Deleted By Client ID.")
@@ -378,7 +381,6 @@ Public Class cutoff_payment_entry_uc
         End Try
 
         btnprint.Text = "Refresh"
-
     End Sub
 
     Private Sub dtg_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtg.CellFormatting
@@ -404,7 +406,8 @@ Public Class cutoff_payment_entry_uc
     'lid= LOAN ID 
     'payment_date= DATE OF PAYMENT (HEADER OF CELL FROM THE DATAGRIDVIEW)
     'start_date= THE START_DATE FROM WHICH THE LOAN IS SET TO PAY
-    'from_date=THE START_DATE OF THE CURRENT CUTOFF
+    'from_date=
+    'THE START_DATE OF THE CURRENT CUTOFF
     'daily= THE DAILY PAYMENT FOR THE LOAN
     'end_date= THE 100 DAYS END_DATE OF THE LOAN
 

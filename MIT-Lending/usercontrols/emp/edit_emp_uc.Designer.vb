@@ -143,7 +143,7 @@ Partial Class edit_emp_uc
         '
         Me.cboarea.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboarea.FormattingEnabled = True
-        Me.cboarea.Location = New System.Drawing.Point(205, 214)
+        Me.cboarea.Location = New System.Drawing.Point(205, 212)
         Me.cboarea.Name = "cboarea"
         Me.cboarea.Size = New System.Drawing.Size(194, 24)
         Me.cboarea.TabIndex = 11
@@ -163,7 +163,7 @@ Partial Class edit_emp_uc
         Me.cboposition.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboposition.FormattingEnabled = True
         Me.cboposition.Items.AddRange(New Object() {"Collector 1", "Collector 2", "Collector 3", "Collector 4", "Collector 5", "Collector 6", "Collector 7", "Collector 8", "Collector 9", "Collector 10", "Encoder 1", "Encoder 2", "Encoder 3", "Encoder 4", "Encoder 5", "Encoder 6", "Encoder 7", "Encoder 8", "Encoder 9", "Encoder 10", "Secretary 1", "Secretary 2", "Secretary 3", "Secretary 4", "Secretary 5", "Secretary 6", "Secretary 7", "Secretary 8", "Secretary 9", "Secretary 10"})
-        Me.cboposition.Location = New System.Drawing.Point(205, 176)
+        Me.cboposition.Location = New System.Drawing.Point(205, 178)
         Me.cboposition.Name = "cboposition"
         Me.cboposition.Size = New System.Drawing.Size(194, 24)
         Me.cboposition.TabIndex = 10

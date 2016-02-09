@@ -51,6 +51,7 @@ Public Class restriction
     Public Property CAN_ACCESS_CLIENT_REPORT As Boolean
     Public Property CAN_ACCESS_PAYMENT_REPORT As Boolean
     Public Property CAN_ACCESS_BALANCE_REPORT As Boolean
+    Public Property CAN_ACCESS_CASH_ADVANCE As Boolean
 
     Public Function crate_default() As Boolean
         Dim cmd As New MySqlCommand
@@ -111,6 +112,7 @@ Public Class restriction
         cmd.Parameters.AddWithValue("_CAN_ACCESS_CLIENT_REPORT", CAN_ACCESS_CLIENT_REPORT)
         cmd.Parameters.AddWithValue("_CAN_ACCESS_PAYMENT_REPORT", CAN_ACCESS_PAYMENT_REPORT)
         cmd.Parameters.AddWithValue("_CAN_ACCESS_BALANCE_REPORT", CAN_ACCESS_BALANCE_REPORT)
+        cmd.Parameters.AddWithValue("_CAN_ACCESS_CASH_ADVANCE", CAN_ACCESS_CASH_ADVANCE)
 
         If ExecuteCommand(cmd) Then
             save = True
@@ -160,6 +162,7 @@ Public Class restriction
         cmd.Parameters.AddWithValue("_CAN_VIEW_PAYMENT", CAN_VIEW_PAYMENT)
 
 
+
         cmd.Parameters.AddWithValue("_CAN_ACCESS_RESTRICTION", CAN_ACCESS_RESTRICTION)
         ' cmd.Parameters.AddWithValue("_CAN_ADD_RESTRICTION", CAN_ADD_RESTRICTION)
         cmd.Parameters.AddWithValue("_CAN_EDIT_RESTRICTION", CAN_EDIT_RESTRICTION)
@@ -172,7 +175,7 @@ Public Class restriction
         cmd.Parameters.AddWithValue("_CAN_ACCESS_CLIENT_REPORT", CAN_ACCESS_CLIENT_REPORT)
         cmd.Parameters.AddWithValue("_CAN_ACCESS_PAYMENT_REPORT", CAN_ACCESS_PAYMENT_REPORT)
         cmd.Parameters.AddWithValue("_CAN_ACCESS_BALANCE_REPORT", CAN_ACCESS_BALANCE_REPORT)
-
+        cmd.Parameters.AddWithValue("_CAN_ACCESS_CASH_ADVANCE", CAN_ACCESS_CASH_ADVANCE)
 
         If ExecuteCommand(cmd) Then
             update = True
@@ -258,6 +261,7 @@ Public Class restriction
                 r.CAN_ACCESS_PAYMENT_REPORT = row.Item("CAN_ACCESS_PAYMENT_REPORT")
                 r.CAN_ACCESS_BALANCE_REPORT = row.Item("CAN_ACCESS_BALANCE_REPORT")
                 r.CAN_ACCESS_REPORT = row.Item("CAN_ACCESS_REPORT")
+                r.CAN_ACCESS_CASH_ADVANCE = row.Item("CAN_ACCESS_CASH_ADVANCE")
 
                 SELECT_BY_ID = r
             Else

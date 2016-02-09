@@ -151,6 +151,12 @@
             DeleteToolStripMenuItem.Enabled = False
         End If
 
+        If CURRENT_RESTRICTION.CAN_ACCESS_CASH_ADVANCE Then
+            CashAdvanceToolStripMenuItem.Enabled = True
+        Else
+            CashAdvanceToolStripMenuItem.Enabled = False
+        End If
+
         If CURRENT_RESTRICTION.CAN_VIEW_EMP Then
             lv.Visible = True
         Else
@@ -166,11 +172,6 @@
             b.id = empid
             a = b.SELECT_BY_ID()
 
-            Dim ca As New emp_ca
-            ca.Dock = DockStyle.Fill
-            ca.ca_emp = a
-
-
             Dim cap As New emp_ca_monitor
             cap.Dock = DockStyle.Fill
             cap.ca_emp = a
@@ -178,30 +179,22 @@
             Dim cash_adv As New cash_advance
             cash_adv.empid = empid
 
+            Dim ca_p As New cash_advance_payment
+            ca_p.empid = empid
 
-            'ca_data(0)= cash_advance_amount
-            'ca_data(1)= cash_advance_balance
+
+            Dim total_ca As Decimal = cash_adv.GET_TOTAL_CASH_ADVANCE()
+            Dim total_payment As Decimal = ca_p.GET_TOTAL_PAYMENT()
+
+
             pnlops.Controls.Clear()
-            pnlops.Height = ca.Height
-            Try
-                Dim ca_data() As Decimal = cash_adv.CHECK_BALANCE_BYEMPID
+            pnlops.Height = cap.Height
 
-                Dim amount As Decimal = ca_data(0)
-                Dim bal As Decimal = ca_data(1)
-                Dim ca_id As Decimal = ca_data(2)
+            cap.amount = total_ca
+            cap.balance = total_ca - total_payment
 
-                If bal > 0 Then
-                    cap.balance = bal
-                    cap.amount = amount
-                    cap.ca_id = ca_id
-
-                    pnlops.Controls.Add(cap)
-                Else
-                    pnlops.Controls.Add(ca)
-                End If
-            Catch ex As Exception
-                pnlops.Controls.Add(ca)
-            End Try         
+            pnlops.Controls.Add(cap)
+          
 
         End If
     End Sub

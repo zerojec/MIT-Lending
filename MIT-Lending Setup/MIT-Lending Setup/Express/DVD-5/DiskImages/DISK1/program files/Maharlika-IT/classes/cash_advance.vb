@@ -91,6 +91,72 @@ Public Class cash_advance
         SELECT_ALL = dt
     End Function
 
+    Public Function SELECT_BYID() As cash_advance
+
+        Dim sql As String = "CASH_ADVANCE_SELECT_BYID"
+        Dim cmd As New MySqlCommand
+        cmd.Parameters.AddWithValue("_id", id)
+        SetCommandProperties(cmd, sql)
+
+        Dim da As New MySqlDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+
+        If dt IsNot Nothing Then
+
+            Dim cap As New cash_advance
+            Dim r As DataRow = dt.Rows(0)
+            cap.id = id
+            cap.amount = CDec(r("amount").ToString())          
+            cap.date_ = CDate(r("date_").ToString())
+            cap.empid = r("empid").ToString()
+
+            Return cap
+
+        Else
+            Return Nothing
+        End If
+
+    End Function
+
+
+    Public Function SELECT_BY_EMPID() As DataTable
+        Dim sql As String = "CASH_ADVANCE_ALL_BYEMPID"
+        Dim cmd As New MySqlCommand
+        cmd.Parameters.AddWithValue("_empid", empid)
+        SetCommandProperties(cmd, sql)
+
+        Dim da As New MySqlDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+        SELECT_BY_EMPID = dt
+    End Function
+
+    Public Function GET_TOTAL_CASH_ADVANCE() As Decimal
+        Dim sql As String = "CASH_ADVANCE_BALANCE_BYEMPID"
+        Dim cmd As New MySqlCommand
+        cmd.Parameters.AddWithValue("_empid", empid)
+        SetCommandProperties(cmd, sql)
+
+        Dim da As New MySqlDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+        Dim total As Decimal = 0
+
+        If dt IsNot Nothing Then
+            total = CDec(dt.Rows(0).Item("total").ToString())
+            GET_TOTAL_CASH_ADVANCE = total
+        Else
+            GET_TOTAL_CASH_ADVANCE = 0
+        End If
+
+    End Function
 
     Public Function CHECK_BALANCE_BYEMPID() As Decimal()
         Dim sql As String = "CASH_ADVANCE_BALANCE_BYEMPID"

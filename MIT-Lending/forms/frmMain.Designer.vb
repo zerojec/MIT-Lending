@@ -22,12 +22,14 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnEmployees = New System.Windows.Forms.Button()
-        Me.btnClients = New System.Windows.Forms.Button()
-        Me.btnLoans = New System.Windows.Forms.Button()
         Me.btnPayments = New System.Windows.Forms.Button()
+        Me.btnLoans = New System.Windows.Forms.Button()
+        Me.btnClients = New System.Windows.Forms.Button()
+        Me.btnEmployees = New System.Windows.Forms.Button()
         Me.btnReports = New System.Windows.Forms.Button()
         Me.pnlops = New System.Windows.Forms.Panel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -45,9 +47,13 @@ Partial Class frmMain
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.notify = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.Notify_Context_Menu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.current_user_notif = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.Notify_Context_Menu.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -70,7 +76,8 @@ Partial Class frmMain
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.TableLayoutPanel2.ColumnCount = 8
+        Me.TableLayoutPanel2.ColumnCount = 9
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
@@ -78,11 +85,11 @@ Partial Class frmMain
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.btnEmployees, 3, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnClients, 2, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnLoans, 1, 0)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.btnPayments, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnLoans, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnClients, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnEmployees, 3, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btnReports, 4, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
@@ -93,25 +100,15 @@ Partial Class frmMain
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 40)
         Me.TableLayoutPanel2.TabIndex = 0
         '
-        'btnEmployees
+        'btnPayments
         '
-        Me.btnEmployees.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEmployees.Location = New System.Drawing.Point(393, 3)
-        Me.btnEmployees.Name = "btnEmployees"
-        Me.btnEmployees.Size = New System.Drawing.Size(124, 34)
-        Me.btnEmployees.TabIndex = 2
-        Me.btnEmployees.Text = "&Employees"
-        Me.btnEmployees.UseVisualStyleBackColor = True
-        '
-        'btnClients
-        '
-        Me.btnClients.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClients.Location = New System.Drawing.Point(263, 3)
-        Me.btnClients.Name = "btnClients"
-        Me.btnClients.Size = New System.Drawing.Size(124, 34)
-        Me.btnClients.TabIndex = 1
-        Me.btnClients.Text = "&Clients"
-        Me.btnClients.UseVisualStyleBackColor = True
+        Me.btnPayments.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPayments.Location = New System.Drawing.Point(3, 3)
+        Me.btnPayments.Name = "btnPayments"
+        Me.btnPayments.Size = New System.Drawing.Size(124, 34)
+        Me.btnPayments.TabIndex = 0
+        Me.btnPayments.Text = "&Payments"
+        Me.btnPayments.UseVisualStyleBackColor = True
         '
         'btnLoans
         '
@@ -123,16 +120,25 @@ Partial Class frmMain
         Me.btnLoans.Text = "&Loans"
         Me.btnLoans.UseVisualStyleBackColor = True
         '
-        'btnPayments
+        'btnClients
         '
-        Me.btnPayments.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnPayments.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPayments.Location = New System.Drawing.Point(3, 3)
-        Me.btnPayments.Name = "btnPayments"
-        Me.btnPayments.Size = New System.Drawing.Size(124, 34)
-        Me.btnPayments.TabIndex = 0
-        Me.btnPayments.Text = "&Payments"
-        Me.btnPayments.UseVisualStyleBackColor = True
+        Me.btnClients.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClients.Location = New System.Drawing.Point(263, 3)
+        Me.btnClients.Name = "btnClients"
+        Me.btnClients.Size = New System.Drawing.Size(124, 34)
+        Me.btnClients.TabIndex = 1
+        Me.btnClients.Text = "&Clients"
+        Me.btnClients.UseVisualStyleBackColor = True
+        '
+        'btnEmployees
+        '
+        Me.btnEmployees.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEmployees.Location = New System.Drawing.Point(393, 3)
+        Me.btnEmployees.Name = "btnEmployees"
+        Me.btnEmployees.Size = New System.Drawing.Size(124, 34)
+        Me.btnEmployees.TabIndex = 2
+        Me.btnEmployees.Text = "&Employees"
+        Me.btnEmployees.UseVisualStyleBackColor = True
         '
         'btnReports
         '
@@ -250,6 +256,29 @@ Partial Class frmMain
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'notify
+        '
+        Me.notify.BalloonTipText = "Maharlika-IT (Lending Software)"
+        Me.notify.BalloonTipTitle = "Clients Nearing End_Date :"
+        Me.notify.ContextMenuStrip = Me.Notify_Context_Menu
+        Me.notify.Icon = CType(resources.GetObject("notify.Icon"), System.Drawing.Icon)
+        Me.notify.Text = "Maharlika-IT (Lending Software)"
+        Me.notify.Visible = True
+        '
+        'Notify_Context_Menu
+        '
+        Me.Notify_Context_Menu.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Notify_Context_Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.current_user_notif})
+        Me.Notify_Context_Menu.Name = "Notify_Context_Menu"
+        Me.Notify_Context_Menu.Size = New System.Drawing.Size(326, 26)
+        '
+        'current_user_notif
+        '
+        Me.current_user_notif.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.current_user_notif.Name = "current_user_notif"
+        Me.current_user_notif.Size = New System.Drawing.Size(325, 22)
+        Me.current_user_notif.Text = "Clients Nearing End_of_Payment Date"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -267,6 +296,7 @@ Partial Class frmMain
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.Notify_Context_Menu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,5 +324,8 @@ Partial Class frmMain
     Friend WithEvents ToolStripStatusLabel5 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents LockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents notify As System.Windows.Forms.NotifyIcon
+    Friend WithEvents Notify_Context_Menu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents current_user_notif As System.Windows.Forms.ToolStripMenuItem
 
 End Class
